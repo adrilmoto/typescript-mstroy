@@ -2,5 +2,15 @@
   "name": "typescript",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "test": "vitest",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "vitest": "^1.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
