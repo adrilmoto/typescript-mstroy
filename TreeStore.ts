@@ -15,6 +15,10 @@ export default class TreeStore {
   public children: Record<string, Item[]> = {};
   constructor(items: Item[]) {
     this.items = items;
+    // можно делать на каждый запрос преобразование 
+    // или проход по массиву что может сэкономит общее время использование класса
+    // решил делать структуру для полученных итемов при инициализации класса,
+    // что в потом сделает работу с методами класса более производительной
     this.setTree()
   }
 
@@ -66,7 +70,7 @@ export default class TreeStore {
   }
 
   // можно подругому с поиском ключей в children т.к. там лежит информация Record<id children>
-  // но это поиск, а тут идет пока не найдем root
+  // но это поиск, а тут идет пока не найдем root и по ключам
   public getAllParents(id: number) {
     let parentItem = this.getParent(id);
     const parents = [];
