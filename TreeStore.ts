@@ -18,6 +18,9 @@ export default class TreeStore {
     this.setTree()
   }
 
+  // Создает два экземпляра объектов за один проход по массиву при инициализации класса
+  // *chacheItem Record<string, Item>
+  // *children Record<Item.id, Item.children>
   private setTree() {
     const rawitems = JSON.parse(JSON.stringify(this.items)) as Item[]
     while (rawitems.length) {
