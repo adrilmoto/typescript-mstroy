@@ -60,8 +60,8 @@ export default class TreeStore {
   public getAllChildren(id: number): Item[] {
     return this.getChildren(id).reduce((acc, curr) => {
       const children = this.getChildren(curr.id)
-      return acc.concat(children.length ? [curr, ...this.getChildren(curr.id)] : curr)
-    }, [] as Item[]).sort((a: Item, b: Item) => a.id - b.id)
+      return acc.concat(children.length ? [curr, ...this.getAllChildren(curr.id)] : curr)
+    }, [] as Item[])
   }
 
   public getParent(id: number | 'root'): Item {
